@@ -21,7 +21,7 @@ class CreateTaskdemosTable extends Migration
     {
         Schema::create('taskdemos', function (Blueprint $table) {
             $table->id();
-            $table->string('complete')->default(0);
+            $table->tinyint('complete')->default(0);
             $table->string('title');
             $table->integer('predicttime_hours');
             $table->integer('predicttime_minutes');

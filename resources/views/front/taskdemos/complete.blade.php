@@ -44,13 +44,19 @@ $title = 'タスク完了一覧';
              <td>{{ $taskdemo->title }}</td>  <!-- カラム名を中央に表示 -->
              <td style="text-align: center;">{{ $taskdemo->realtime_hours }}時間{{ $taskdemo->realtime_minutes }}分</td>  <!-- カラム名を中央に表示 -->
              <td style="text-align: center;">{{ $taskdemo->predicttime_hours }}時間{{ $taskdemo->predicttime_minutes }}分</td>  <!-- カラム名を中央に表示 -->
-             <td style="color:#ff0000; text-align: center;">  <!-- RATEの計算（数値を赤字表記） -->
-                 <?php 
-                 $real_time = $taskdemo->realtime_hours * 60 + $taskdemo->realtime_minutes;
-                 $predict_time = $taskdemo->predicttime_hours * 60 + $taskdemo->predicttime_minutes;
-                 $RATE = $real_time/$predict_time;
-                 echo number_format($RATE, 2); ?>
-             </td>
+             <?php 
+               $real_time = $taskdemo->realtime_hours * 60 + $taskdemo->realtime_minutes;
+               $predict_time = $taskdemo->predicttime_hours * 60 + $taskdemo->predicttime_minutes;
+               $RATES = $real_time/$predict_time;
+               $RATE = number_format($RATES, 2);
+             ?>
+             @if ($RATE >= 1.4)
+               <td style="color:#ff0000; text-align: center;">{{ $RATE }}</td>
+             @elseif ($RATE >= 0.85)
+               <td style="color:#000000; text-align: center;">{{ $RATE }}</td>
+             @else
+               <td style="color:#0000ff; text-align: center;">{{ $RATE }}</td>
+             @endif
         </tr>
         @endforeach
         </tbody>
