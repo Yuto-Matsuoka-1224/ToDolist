@@ -67,5 +67,12 @@
         </div>
     </div>
 </div>
+
+<!-- フッター部分 -->
+<footer class="footer bg-dark  fixed-bottom">
+   <div class="container text-center">
+      <span class="text-light">©Yuto Matsuoka</span>
+   </div>
+</footer>
 </body>
 </html>

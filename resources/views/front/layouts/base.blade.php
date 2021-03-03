@@ -55,6 +55,13 @@
     </main>
 </div>
 
+<!-- フッター部分 -->
+<footer class="footer bg-dark  fixed-bottom">
+  <div class="container text-center">
+    <span class="text-light">©Yuto Matsuoka</span>
+  </div>
+</footer>
+
 <!-- 外部スクリプトを用いたデザインの設定 -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
