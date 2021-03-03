@@ -50,13 +50,7 @@ $title = 'タスク完了一覧';
                $RATES = $real_time/$predict_time;
                $RATE = number_format($RATES, 2);
              ?>
-             @if ($RATE >= 1.4)
-               <td style="color:#ff0000; text-align: center;">{{ $RATE }}</td>
-             @elseif ($RATE >= 0.85)
-               <td style="color:#000000; text-align: center;">{{ $RATE }}</td>
-             @else
-               <td style="color:#0000ff; text-align: center;">{{ $RATE }}</td>
-             @endif
+             <td style="color:#ff0000; text-align: center;">{{ $RATE }}</td>
         </tr>
         @endforeach
         </tbody>

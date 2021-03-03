@@ -44,13 +44,12 @@ $title = 'タスク完了一覧';
              <td>{{ $task->title }}</td>  <!-- カラム名を中央に表示 -->
              <td style="text-align: center;">{{ $task->realtime_hours }}時間{{ $task->realtime_minutes }}分</td>  <!-- カラム名を中央に表示 -->
              <td style="text-align: center;">{{ $task->predicttime_hours }}時間{{ $task->predicttime_minutes }}分</td>  <!-- カラム名を中央に表示 -->
-             <td style="color:#ff0000; text-align: center;">  <!-- RATEの計算（数値を赤字表記） -->
-                 <?php 
-                 $real_time = $task->realtime_hours * 60 + $task->realtime_minutes;
-                 $predict_time = $task->predicttime_hours * 60 + $task->predicttime_minutes;
-                 $RATE = $real_time/$predict_time;
-                 echo number_format($RATE, 2); ?>
-             </td>
+             <?php 
+               $real_time = $task->realtime_hours * 60 + $task->realtime_minutes;
+               $predict_time = $task->predicttime_hours * 60 + $task->predicttime_minutes;
+               $RATES = $real_time/$predict_time;
+               $RATE = number_format($RATES, 2); ?>
+             <td style="color:#ff0000; text-align: center;">{{ $RATE }}</td>
         </tr>
         @endforeach
         </tbody>
