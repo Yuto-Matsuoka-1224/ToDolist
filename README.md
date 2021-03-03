@@ -32,7 +32,6 @@
 ・Todoリスト機能は，基本機能と同一  
 
 ## 機能の工夫点及び導入理由
-
 ◯ RATE機能の導入  
 (理由) ユーザーが正確にタスクの時間を見積もることを手助けするため．  
 (現状) 人間：1つのタスクに対し，タスクの実施時間が実施予定時間よりも約3倍かかると言われている．  
@@ -47,7 +46,7 @@
 ## 環境構築の手順
 
 ### 開発環境の構築
-・MAMPを用いたローカル環境の構築（macOS上で構築する場合）  
+・MAMPを用いたローカル環境の構築（macOS上で構築する場合）   
 
 ### 必要なパッケージのインストール
 ・composer（phpの管理パッケージ）  
@@ -58,7 +57,6 @@
 ・設定ファイルの変更  
 
 ## デモ画面
-
 ![screen1](image/screen1.png)  
 ![screen2](image/screen2.png)  
 ![screen3](image/screen3.png)  
@@ -70,7 +68,10 @@
 ![screen9](image/screen9.png)  
 
 ## 注意点
-
 ・レスポンシブ非対応のため，スマートフォンの画面では画面が崩れる場合があります．  
 
-## 参考
+## 参考リンク
+MAMPを用いた環境構築法 ... https://www.youtube.com/watch?v=8jMnqeCiYDM&t=0s  
+パッケージのインストール ... https://youtu.be/yaitzPzBzuI  
+タイムゾーン／言語設定 ... https://shizuoka-turi.com/laravel-vue-js/laravel-first-step  
+設定ファイルの変更 ... http://localhost:8888/MAMP/  
