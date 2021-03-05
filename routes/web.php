@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/auth/twitter', [TwitterController::class,'redirectToProvider']);
-Route::get('/auth/twitter/callback', [TwitterController::class,'handleProviderCallback']);
-Route::get("/auth/twitter/logout",[TwitterController::class,'logout']);
+//Route::get('/auth/twitter', [TwitterController::class,'redirectToProvider']);
+//Route::get('/auth/twitter/callback', [TwitterController::class,'handleProviderCallback']);
+//Route::get("/auth/twitter/logout",[TwitterController::class,'logout']);
+
+// TwitterログインURL
+Route::get('auth/twitter', 'Auth\TwitterController@redirectToProvider');
+// TwitterコールバックURL
+Route::get('auth/twitter/callback', 'Auth\TwitterController@handleProviderCallback');
+// TwitterログアウトURL
+Route::get('auth/twitter/logout', 'Auth\TwitterController@logout');
