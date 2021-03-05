@@ -17,6 +17,7 @@ class TwitterController extends Controller
 
     // Twitterコールバック
     public function handleProviderCallback() {
+        
         try {
             // ユーザー詳細情報の取得
             $user = Socialite::driver('twitter')->user();
