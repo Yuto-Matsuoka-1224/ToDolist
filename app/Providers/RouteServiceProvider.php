@@ -55,6 +55,11 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace . '\Back')
                 ->as('back.')
                 ->group(base_path('routes/back.php'));
+
+            // ログイン認証
+            Route::middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/web.php'));
         });
     }
 
