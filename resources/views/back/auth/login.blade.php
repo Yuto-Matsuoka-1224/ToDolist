@@ -60,6 +60,8 @@
                             <div>
                                 <button type="submit" class="btn btn-primary">ログイン</button>
                             </div>
+
+                            <a href="/auth/twitter">Twitter</a>
                         {{ Form::close() }}
                     </div>
                 </div>
