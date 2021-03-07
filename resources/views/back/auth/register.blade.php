@@ -14,6 +14,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>新規登録 | Todoリスト</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
 </head>
 <body>
@@ -64,6 +66,17 @@
                             <div style="padding-top: 17px">
                                 <button type="submit" class="btn btn-primary">新規登録</button>
                             </div>
+
+                            <hr>
+                            <div class="form-group">
+                                {{ Form::label('SNS', 'SNSで新規登録') }}
+                            </div>
+
+                            <!-- Twitterで新規登録 -->
+                            <a href="/auth/twitter" class="sns-btn twitter" style="margin-top:-10px">
+                                <span class = "fa fa-twitter"></span>
+                                Twitterで登録
+                            </a>
                         {{ Form::close() }}
                     </div>
                 </div>
