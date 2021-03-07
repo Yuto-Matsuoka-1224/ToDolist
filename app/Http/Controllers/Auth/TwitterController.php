@@ -17,14 +17,14 @@ class TwitterController extends Controller
 
     // Twitterコールバック
     public function handleProviderCallback() {
-        
+
         try {
             // ユーザー詳細情報の取得
             $user = Socialite::driver('twitter')->user();
         } catch (Exception $e) {
             return redirect('auth/twitter');
         }
-        return redirect('/');
+        return redirect('/admin');
 
     }
 
