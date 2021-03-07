@@ -28,7 +28,7 @@ class TwitterController extends Controller
 
         $myinfo = User::firstOrCreate(['token' => $user->token],['name' => $user->nickname]);
         Auth::login($myinfo);
-        return redirect()->to('/');
+        return redirect()->to('/admin');
 
     }
 
