@@ -17,7 +17,7 @@ $title = 'タスク一覧';
 <div class="card-header">{{ $title }}</div>
 <div class="card-body">
 
-    <!-- タスクの登録 →「create.blade.php」へ -->
+    <!-- タスクの登録 →「コントローラ」→ create.blade.php へ -->
     {{ link_to_route('front.taskdemos.create', 'タスク登録', null, ['class' => 'btn btn-primary mb-3']) }}
 
     <!-- 完了タスクの一覧画面へ遷移 -->
@@ -46,7 +46,7 @@ $title = 'タスク一覧';
              <td style="text-align: center; vertical-align: middle;">{{ $taskdemo->predicttime_hours }}時間{{ $taskdemo->predicttime_minutes }}分</td>  <!-- カラム名を中央に表示 -->
              <td class="d-flex justify-content-center">
 
-                <!-- タスクの編集／記録 → 「edit.blade.php」へ -->
+                <!-- タスクの編集／記録 → 「コントローラ」→「edit.blade.php」へ -->
                 {{ link_to_route('front.taskdemos.edit', '編集・記録', $taskdemo, [
                      'class' => 'btn btn-secondary btn-sm m-1'
                 ]) }}

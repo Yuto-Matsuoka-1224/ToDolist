@@ -31,7 +31,7 @@ class CreateTaskdemosTable extends Migration
         });
     }
 
-    /* 既にテーブルが存在していた場合，テーブルを削除 */
+    /* テーブルを削除 */
 
     public function down()
     {
