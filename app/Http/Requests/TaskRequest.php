@@ -24,8 +24,7 @@ class TaskRequest extends FormRequest
     public function rules()
     {
         return [
-                'title' => 'required|max:50',
-                'predict_time' => 'max:24'
+                'title' => 'required|max:50'
         ];
     }
 
@@ -34,6 +33,7 @@ class TaskRequest extends FormRequest
         return [
             'title' => 'タイトル',
             'predict_time' => '実施予定時間',
+            'real_time' => '実施時間'
         ];
     }
 
