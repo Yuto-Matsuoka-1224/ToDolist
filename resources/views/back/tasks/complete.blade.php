@@ -21,6 +21,9 @@ $title = 'タスク完了一覧';
 <div class="card-body">
 
     <!-- 未完タスクの一覧画面へ遷移 -->
+    <div style="position:absolute; top:12px; right:150px;">  
+        <a href='/admin/tasks/complete/RATE'>RATEとは？</a> ／
+    </div>
     <div style="position:absolute; top:12px; right:25px;">  
         <a href='/admin'>タスク一覧に戻る</a>
     </div>

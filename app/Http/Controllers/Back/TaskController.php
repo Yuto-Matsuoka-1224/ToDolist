@@ -51,6 +51,18 @@ class TaskController extends Controller
     }
 
     /*
+      RATE機能説明
+    */
+
+    public function RATE()
+    {
+        $user_id = Auth::id();
+        $user = User::find($user_id);
+        
+        return view('back.tasks.RATE',compact('user'));
+    }
+
+    /*
     　タスクの一覧画面表示（管理者用） 
 
       ① タスクを最新順に表示
