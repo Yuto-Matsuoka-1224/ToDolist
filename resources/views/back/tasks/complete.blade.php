@@ -52,7 +52,16 @@ $title = 'タスク完了一覧';
                $predict_time = $task->predicttime_hours * 60 + $task->predicttime_minutes;
                $RATES = $real_time/$predict_time;
                $RATE = number_format($RATES, 2); ?>
-             <td style="color:#ff0000; text-align: center;">{{ $RATE }}</td>
+             
+             <!-- RATEの色分け -->
+             @if ($RATE >= 1.80)
+                <td style="color:red; text-align: center;">{{ $RATE }}</td>
+             @elseif ($RATE >= 0.70)
+                <td style="color:black; text-align: center;">{{ $RATE }}</td>
+             @else
+                <td style="color:blue; text-align: center;">{{ $RATE }}</td>
+             @endif
+             
         </tr>
         @endforeach
         </tbody>
