@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
+use Request;
 use App\Models\Task;
 use App\Models\User;
 use Auth;
 use App\Http\Requests\TaskRequest;
+use Illuminate\Support\Facades\Input;
 
 
 class TaskController extends Controller
@@ -20,6 +22,7 @@ class TaskController extends Controller
         $user_id = Auth::id();
         $taskall = Task::query();
         $taskall->where('user_id',$user_id);
+        $taskall->where('button',1);
         $taskall->where('complete',0);
         $taskall->latest('id')->paginate(10);
         $tasks = $taskall->get();
@@ -41,6 +44,7 @@ class TaskController extends Controller
         $user_id = Auth::id();
         $taskall = Task::query();
         $taskall->where('user_id',$user_id);
+        $taskall->where('button',1);
         $taskall->where('complete',1);
         $taskall->latest('id')->paginate(10);
         $tasks = $taskall->get();
@@ -58,7 +62,6 @@ class TaskController extends Controller
     {
         $user_id = Auth::id();
         $user = User::find($user_id);
-        
         return view('back.tasks.RATE',compact('user'));
     }
 
@@ -95,16 +98,46 @@ class TaskController extends Controller
       ①タスク作成 → 入力成功の場合はタスク一覧画面へ遷移，未入力の場合は画面遷移をしない
     */
 
-    public function store(TaskRequest $request)
+    public function store(TaskRequest $taskrequest)
     {
-        $task = Task::create($request->all());
- 
+        $task = Task::create($taskrequest->all());
+
+        if (Request::get('predict')) {
+            $user_id = Auth::id();
+            $user = User::find($user_id);
+            return view('back.tasks.predict', compact('task','user'));
+        } else {
+            if ($task) {
+                $task->button = '1';
+                $task->save();
+                return redirect()
+                    ->route('back.dashboard', $task);
+            } else {
+                return redirect()
+                    ->route('back.tasks.create');
+            }
+        }
+    }
+
+    public function estiminate(TaskRequest $request, Task $task)
+    {
+        $task->update($request->all());
+        
         if ($task) {
+
+            /*要変更：update時に1にできていない
+
+            $task->update(['ボタン' => '1']);
+            
+            */
+            
             return redirect()
                 ->route('back.dashboard', $task);
         } else {
+            $user_id = Auth::id();
+            $user = User::find($user_id);
             return redirect()
-                ->route('back.tasks.create');
+                ->route('back.tasks.predict', compact('task','user'));
         }
     }
 
@@ -123,7 +156,7 @@ class TaskController extends Controller
     public function update(TaskRequest $request, Task $task)
     {
         $task->update($request->all());
-     
+        
         return redirect()
             ->route('back.tasks.edit', $task);
     }
