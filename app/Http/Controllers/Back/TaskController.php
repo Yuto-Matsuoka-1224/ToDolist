@@ -62,7 +62,6 @@ class TaskController extends Controller
     {
         $user_id = Auth::id();
         $user = User::find($user_id);
-
         return view('back.tasks.RATE',compact('user'));
     }
 
