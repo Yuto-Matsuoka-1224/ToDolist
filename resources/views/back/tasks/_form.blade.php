@@ -30,6 +30,10 @@
     </div>
 </div>
 
+@if($title == 'タスク登録（予測）')
+ああああ
+@endif
+
 <!-- 実施時間／タスク完了ボタンのフォームについては，編集画面でのみ表示 -->
 @if($title == 'タスク編集／実施時間記録')
 
@@ -49,9 +53,10 @@
 @endif
 
 <!-- 編集後カラムの保存／一覧リストへ戻る -->
-<div class="form-group">
-    <div class="col-sm-10">
-        <button type="submit" class="btn btn-primary">保存</button>
-        {{ link_to_route('back.dashboard', '一覧へ戻る', null, ['class' => 'btn btn-secondary']) }}
-    </div>
+<div class="col-sm-10">
+    @if($title == 'タスク登録')
+    <input class="btn  btn-primary"  type="submit"  name="predict" value="予想">
+    @endif
+    <input class="btn  btn-primary"  type="submit"  name="save"  value="保存">
+    {{ link_to_route('back.dashboard', '一覧へ戻る', null, ['class' => 'btn btn-secondary']) }}
 </div>

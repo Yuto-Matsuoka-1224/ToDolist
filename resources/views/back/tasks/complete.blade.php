@@ -3,7 +3,7 @@
 　　　
     ① タスクが無い場合は，「表示するタスクがありません」と表示
     ② テーブル名／カラム名の文字を中央に表示
-    ③ RATE（実施時間／実施予想時間の比）の計算（強調のため赤字表記）
+    ③ RATE（実施時間／実施予想時間の比）の計算
 
  -->
 
@@ -21,6 +21,9 @@ $title = 'タスク完了一覧';
 <div class="card-body">
 
     <!-- 未完タスクの一覧画面へ遷移 -->
+    <div style="position:absolute; top:12px; right:150px;">  
+        <a href='/admin/tasks/complete/RATE'>RATEとは？</a> ／
+    </div>
     <div style="position:absolute; top:12px; right:25px;">  
         <a href='/admin'>タスク一覧に戻る</a>
     </div>
@@ -49,7 +52,16 @@ $title = 'タスク完了一覧';
                $predict_time = $task->predicttime_hours * 60 + $task->predicttime_minutes;
                $RATES = $real_time/$predict_time;
                $RATE = number_format($RATES, 2); ?>
-             <td style="color:#ff0000; text-align: center;">{{ $RATE }}</td>
+             
+             <!-- RATEの色分け -->
+             @if ($RATE >= 1.80)
+                <td style="color:red; text-align: center;">{{ $RATE }}</td>
+             @elseif ($RATE >= 0.70)
+                <td style="color:black; text-align: center;">{{ $RATE }}</td>
+             @else
+                <td style="color:blue; text-align: center;">{{ $RATE }}</td>
+             @endif
+
         </tr>
         @endforeach
         </tbody>
