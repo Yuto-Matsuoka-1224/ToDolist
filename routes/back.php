@@ -8,6 +8,7 @@ use App\Http\Controllers\Back\TaskController;
 
 Route::get('/', 'TaskController')->name('dashboard');
 Route::get('/tasks/complete', [TaskController::class,'complete'])->name('complete');
+Route::get('/tasks/complete/RATE', [TaskController::class,'RATE'])->name('RATE');
 Route::resource('tasks', 'TaskController')->except('show');
 Route::group(['middleware' => 'can:admin'], function () {
     Route::resource('users', 'UserController')->except('show');
