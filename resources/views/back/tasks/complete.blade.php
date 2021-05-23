@@ -3,7 +3,7 @@
 　　　
     ① タスクが無い場合は，「表示するタスクがありません」と表示
     ② テーブル名／カラム名の文字を中央に表示
-    ③ RATE（実施時間／実施予想時間の比）の計算（強調のため赤字表記）
+    ③ RATE（実施時間／実施予想時間の比）の計算
 
  -->
 
@@ -61,7 +61,7 @@ $title = 'タスク完了一覧';
              @else
                 <td style="color:blue; text-align: center;">{{ $RATE }}</td>
              @endif
-             
+
         </tr>
         @endforeach
         </tbody>
