@@ -62,10 +62,6 @@ class TaskController extends Controller
     {
         $user_id = Auth::id();
         $user = User::find($user_id);
-<<<<<<< HEAD
-
-=======
->>>>>>> 4190bbad5b1e59182dd3ff85b0a05e50b9314d5f
         return view('back.tasks.RATE',compact('user'));
     }
 
@@ -103,7 +99,6 @@ class TaskController extends Controller
     */
 
     public function store(TaskRequest $taskrequest)
-<<<<<<< HEAD
     {
         $task = Task::create($taskrequest->all());
 
@@ -126,8 +121,6 @@ class TaskController extends Controller
 
     public function estiminate(TaskRequest $request, Task $task)
     {
-=======
-    {
         $task = Task::create($taskrequest->all());
 
         if (Request::get('predict')) {
@@ -146,34 +139,7 @@ class TaskController extends Controller
             }
         }
     }
-
-    public function estiminate(TaskRequest $request, Task $task)
-    {
->>>>>>> 4190bbad5b1e59182dd3ff85b0a05e50b9314d5f
-        $task->update($request->all());
-        
-        if ($task) {
-
-<<<<<<< HEAD
-            /*要変更：update時に1にできてない
-=======
-            /*要変更：update時に1にできていない
->>>>>>> 4190bbad5b1e59182dd3ff85b0a05e50b9314d5f
-
-            $task->update(['ボタン' => '1']);
-            
-            */
-            
-            return redirect()
-                ->route('back.dashboard', $task);
-        } else {
-            $user_id = Auth::id();
-            $user = User::find($user_id);
-            return redirect()
-                ->route('back.tasks.predict', compact('task','user'));
-        }
-    }
-
+    
     /* タスクの編集機能 */
 
     public function edit(Task $task)
