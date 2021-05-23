@@ -35,6 +35,10 @@ class TaskRequest extends FormRequest
             'predict_time' => '実施予定時間',
             'real_time' => '実施時間',
             'button' => 'ボタン'
+<<<<<<< HEAD
+=======
+            'real_time' => '実施時間'
+>>>>>>> 4190bbad5b1e59182dd3ff85b0a05e50b9314d5f
         ];
     }
 
