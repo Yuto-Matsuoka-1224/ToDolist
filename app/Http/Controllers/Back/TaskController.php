@@ -126,7 +126,7 @@ class TaskController extends Controller
         
         if ($task) {
 
-            /*要変更：update時に1にできていない
+            /*要変更：update時に1にできてない
 
             $task->update(['ボタン' => '1']);
             
