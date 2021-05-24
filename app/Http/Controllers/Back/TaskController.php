@@ -44,7 +44,7 @@ class TaskController extends Controller
         $user_id = Auth::id();
         $taskall = Task::query();
         $taskall->where('user_id',$user_id);
-        $taskall->where('button',1);
+        //$taskall->where('button',1);
         $taskall->where('complete',1);
         $taskall->latest('id')->paginate(10);
         $tasks = $taskall->get();
@@ -100,6 +100,7 @@ class TaskController extends Controller
 
     public function store(TaskRequest $taskrequest)
     {
+        /*
         $task = Task::create($taskrequest->all());
 
         if (Request::get('predict')) {
@@ -117,8 +118,21 @@ class TaskController extends Controller
                     ->route('back.tasks.create');
             }
         }
+        */
+
+        if ($task) {
+            // $task->button = '1';
+            // $task->save();
+            return redirect()
+                ->route('back.dashboard', $task);
+        } else {
+            return redirect()
+                ->route('back.tasks.create');
+                 
+        }
     }
 
+    /* 変更予定
     public function estiminate(TaskRequest $request, Task $task)
     {
         $task = Task::create($taskrequest->all());
@@ -139,7 +153,8 @@ class TaskController extends Controller
             }
         }
     }
-    
+    */
+
     /* タスクの編集機能 */
 
     public function edit(Task $task)

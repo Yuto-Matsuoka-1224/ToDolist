@@ -18,7 +18,7 @@ class Task extends Model
         'realtime_hours',
         'realtime_minutes',
         'complete',
-        'button'
+        //'button'
     ];
 
     /* taskテーブル → userテーブルへの紐付け */

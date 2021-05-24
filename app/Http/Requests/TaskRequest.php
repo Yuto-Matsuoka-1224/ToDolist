@@ -34,7 +34,7 @@ class TaskRequest extends FormRequest
             'title' => 'タイトル',
             'predict_time' => '実施予定時間',
             'real_time' => '実施時間',
-            'button' => 'ボタン'
+            //'button' => 'ボタン'
         ];
     }
 
