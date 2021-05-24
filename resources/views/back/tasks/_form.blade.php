@@ -57,6 +57,6 @@
     @if($title == 'タスク登')
     <input class="btn  btn-primary"  type="submit"  name="predict" value="予想">
     @endif
-    <input class="btn  btn-primary"  type="submit"  name="save"  value="保存">
+    <button type="submit" class="btn btn-primary">保存</button>
     {{ link_to_route('back.dashboard', '一覧へ戻る', null, ['class' => 'btn btn-secondary']) }}
 </div>
