@@ -16,7 +16,7 @@ use App\Http\Controllers\Auth\TwitterController;
 
 //Route::get('/auth/twitter', [TwitterController::class,'redirectToProvider']);
 //Route::get('/auth/twitter/callback', [TwitterController::class,'handleProviderCallback']);
-// Route::get("/auth/twitter/logout",[TwitterController::class,'logout']);
+//Route::get("/auth/twitter/logout",[TwitterController::class,'logout']);
 
 // TwitterログインURL
 Route::get('/auth/twitter', [TwitterController::class,'redirectToProvider']);
