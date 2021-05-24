@@ -61,10 +61,6 @@ $title = 'タスク完了一覧';
              @else
                 <td style="color:blue; text-align: center;">{{ $RATE }}</td>
              @endif
-<<<<<<< HEAD
-
-=======
->>>>>>> 4190bbad5b1e59182dd3ff85b0a05e50b9314d5f
         </tr>
         @endforeach
         </tbody>
