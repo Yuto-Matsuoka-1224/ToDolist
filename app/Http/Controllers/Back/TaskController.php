@@ -98,7 +98,7 @@ class TaskController extends Controller
       ①タスク作成 → 入力成功の場合はタスク一覧画面へ遷移，未入力の場合は画面遷移をしない
     */
 
-    public function store(TaskRequest $task)
+    public function store(TaskRequest $request)
     {
         /*
         $task = Task::create($taskrequest->all());
@@ -119,6 +119,8 @@ class TaskController extends Controller
             }
         }
         */
+
+        $task = Task::create($request->all());
 
         if ($task) {
             // $task->button = '1';
