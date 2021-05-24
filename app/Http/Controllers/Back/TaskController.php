@@ -22,7 +22,7 @@ class TaskController extends Controller
         $user_id = Auth::id();
         $taskall = Task::query();
         $taskall->where('user_id',$user_id);
-        $taskall->where('button',1);
+        //$taskall->where('button',1);
         $taskall->where('complete',0);
         $taskall->latest('id')->paginate(10);
         $tasks = $taskall->get();
