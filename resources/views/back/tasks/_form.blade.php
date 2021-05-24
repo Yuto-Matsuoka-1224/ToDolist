@@ -54,7 +54,7 @@
 
 <!-- 編集後カラムの保存／一覧リストへ戻る -->
 <div class="col-sm-10">
-    @if($title == 'タスク登録')
+    @if($title == 'タスク')
     <input class="btn  btn-primary"  type="submit"  name="predict" value="予想">
     @endif
     <input class="btn  btn-primary"  type="submit"  name="save"  value="保存">
