@@ -13,7 +13,7 @@
 <body>
 
 <div class="fade">
-    <img src="{{ asset('image/Todolist-cover.png') }}" alt="トップ">
+    <img src="{{ mix('image/Todolist-cover.png') }}" alt="トップ">
     <a href="/demo">▷デモ画面へ</a>
 </div>
 
