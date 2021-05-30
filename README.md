@@ -62,15 +62,15 @@
 ## デモ画面
 【デモ画面のリンク】https://shielded-temple-34878.herokuapp.com  
   
-![screen1](image/screen1.png)  
-![screen2](image/screen2.png)  
-![screen3](image/screen3.png)  
-![screen4](image/screen4.png)  
-![screen5](image/screen5.png)  
-![screen6](image/screen6.png)  
-![screen7](image/screen7.png)  
-![screen8](image/screen8.png)  
-![screen9](image/screen9.png)  
+![screen1](public/image/screen1.png)  
+![screen2](public/image/screen2.png)  
+![screen3](public/image/screen3.png)  
+![screen4](public/image/screen4.png)  
+![screen5](public/image/screen5.png)  
+![screen6](public/image/screen6.png)  
+![screen7](public/image/screen7.png)  
+![screen8](public/image/screen8.png)  
+![screen9](public/image/screen9.png)  
 
 ## 注意点
 ・レスポンシブ非対応のため，スマートフォンの画面では画面が崩れる場合があります． 

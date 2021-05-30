@@ -9,3 +9,28 @@
 .twitter {
     background-color: #55acee;
 }
+
+.fade{
+
+  position: relative;
+  animation: fadeIn 3s ease both;
+
+}
+
+.fade a{
+    
+  position: absolute;
+  color: white;
+  bottom: 9%;
+  right: 6%;
+  font-size: 2em;
+
+}
+
+@keyframes fadeIn { /*animetion-nameで設定した値を書く*/
+
+  0% {opacity: 0} /*アニメーション開始時は不透明度0%*/
+
+  100% {opacity: 1} /*アニメーション終了時は不透明度100%*/
+
+}

@@ -9,6 +9,9 @@ use App\Http\Requests\TaskdemoRequest;
 
 class TaskdemoController extends Controller
 {
+    public function top(){
+        return view('front.taskdemos.toppage');
+    }
 
     /*
       タスクの一覧表示  
