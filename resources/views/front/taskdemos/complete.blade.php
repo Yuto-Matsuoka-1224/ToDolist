@@ -22,7 +22,7 @@ $title = 'タスク完了一覧';
 
     <!-- 未完タスクの一覧画面へ遷移 -->
     <div style="position:absolute; top:12px; right:25px;">  
-        <a href='/demo'>タスク一覧に戻る</a>
+        <a href='/'>タスク一覧に戻る</a>
     </div>
 
     <!-- タスク一覧表示の処理 -->
