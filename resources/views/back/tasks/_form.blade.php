@@ -30,12 +30,24 @@
     </div>
 </div>
 
-@if($title == 'タスク登録（予測）')
-ああああ
-@endif
-
 <!-- 実施時間／タスク完了ボタンのフォームについては，編集画面でのみ表示 -->
 @if($title == 'タスク編集／実施時間記録')
+<div class="form-group">
+    <div class="col-sm-12">
+        @if($taskcounts == 10)
+        <?php
+          $predict_time = round(($task->predicttime_hours * 60 + $task->predicttime_minutes) * $taskave);
+          $auto_hours = intval($predict_time/60);
+          $auto_minutes = $predict_time % 60;
+          $taskave = number_format($taskave,2);
+        ?>
+        <h6 style="font-weight: 800;">予測時間：
+        <span style="color:red;">{{ $auto_hours }}時間{{ $auto_minutes }}分</span>（平均RATE：{{ $taskave }})</h6>
+        @else
+        <h6 style="font-weight: 800;">予測時間：{{ $taskave }}</h6>
+        @endif
+    </div>
+</div>
 
 <div class="form-group" style="margin-top: 40px">
     <hr>
@@ -54,9 +66,6 @@
 
 <!-- 編集後カラムの保存／一覧リストへ戻る -->
 <div class="col-sm-10">
-    @if($title == 'タスク登')
-    <input class="btn  btn-primary"  type="submit"  name="predict" value="予想">
-    @endif
     <button type="submit" class="btn btn-primary">保存</button>
     {{ link_to_route('back.dashboard', '一覧へ戻る', null, ['class' => 'btn btn-secondary']) }}
 </div>

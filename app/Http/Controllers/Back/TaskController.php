@@ -22,7 +22,6 @@ class TaskController extends Controller
         $user_id = Auth::id();
         $taskall = Task::query();
         $taskall->where('user_id',$user_id);
-        //$taskall->where('button',1);
         $taskall->where('complete',0);
         $taskall->latest('id')->paginate(10);
         $tasks = $taskall->get();
@@ -41,13 +40,22 @@ class TaskController extends Controller
 
     public function complete()
     {
+        // RATEカラム更新
+        $taskrate = Task::latest('updated_at')->first();
+        $real_time = $taskrate->realtime_hours * 60 + $taskrate->realtime_minutes;
+        $predict_time = $taskrate->predicttime_hours * 60 + $taskrate->predicttime_minutes;
+        $RATES = $real_time/$predict_time;
+        $RATE = number_format($RATES, 2);
+        $taskrate->update(['RATE' => $RATE]);
+        
+        // タスク表示
         $user_id = Auth::id();
         $taskall = Task::query();
         $taskall->where('user_id',$user_id);
-        //$taskall->where('button',1);
         $taskall->where('complete',1);
         $taskall->latest('id')->paginate(10);
         $tasks = $taskall->get();
+
 
         $user = User::find($user_id);
 
@@ -161,10 +169,25 @@ class TaskController extends Controller
 
     public function edit(Task $task)
     {
+        // タスク編集機能
+        $user_id = Auth::id();
+        $tasks = Task::query();
+        $tasks->where('user_id',$user_id);
+        $tasks->where('complete',1);
+        $tasks->orderBy('id', 'DESC');
+        $taskcount = $tasks->take(10)->get();
+        $taskcounts = $taskcount->count();
+
+        if ($taskcounts == 10) {
+            $taskave = $taskcount->avg('RATE');
+        } else {
+            $taskave = '※タスクを10個完了させると表示されます。';
+        }
+        
         $user_id = Auth::id();
         $user = User::find($user_id);
 
-        return view('back.tasks.edit', compact('task','user'));
+        return view('back.tasks.edit', compact('task','taskcounts','taskave','user'));
     }
 
     /* 編集時の入力情報表示機能 */ 

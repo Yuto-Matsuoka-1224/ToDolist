@@ -29,6 +29,7 @@ class CreateTasksTable extends Migration
             $table->integer('predicttime_minutes');
             $table->integer('realtime_hours')->default(0);
             $table->integer('realtime_minutes')->default(0);
+            $table->float('RATE')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
