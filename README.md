@@ -1,4 +1,4 @@
-![cover](image/Todolist-cover.png)
+![cover](public/image/Todolist-cover.png)
 
 ## 開発環境
 
